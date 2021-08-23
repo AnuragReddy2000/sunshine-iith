@@ -11,5 +11,8 @@ module.exports = {
         icon: "src/images/icon.png",
       },
     },
+    `gatsby-plugin-typescript`,
+    `gatsby-plugin-layout`,
+    `gatsby-plugin-offline`
   ],
 };

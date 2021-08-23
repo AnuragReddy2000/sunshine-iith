@@ -37,7 +37,7 @@ const listItemStyles = {
 
 const linkStyle = {
   color: "#8954A8",
-  fontWeight: "bold",
+  fontWeight: 500,
   fontSize: 16,
   verticalAlign: "5%",
 }
@@ -67,12 +67,11 @@ const badgeStyle = {
   backgroundColor: "#088413",
   border: "1px solid #088413",
   fontSize: 11,
-  fontWeight: "bold",
+  fontWeight: 500,
   letterSpacing: 1,
   borderRadius: 4,
   padding: "4px 6px",
   display: "inline-block",
-  position: "relative",
   top: -2,
   marginLeft: 10,
   lineHeight: 1,

@@ -49,13 +49,18 @@ function index({ children }) {
     signInWithPopup(authentication, provider)
       .then((res) => {
         const User = res.user;
-        res.user.getIdToken().then((res) => {
-          setuser({
-            displayName: User.displayName,
-            email: User.email,
-            idToken: res,
+        if (!res.user.email.includes("iith.ac.in")) {
+          signout();
+          return;
+        } else {
+          res.user.getIdToken().then((res) => {
+            setuser({
+              displayName: User.displayName,
+              email: User.email,
+              idToken: res,
+            });
           });
-        });
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -66,7 +71,7 @@ function index({ children }) {
     // console.log('signout click');
     signOut(auth)
       .then(() => {
-        setuser(null)
+        setuser(null);
       })
       .catch((error) => {
         console.log(error.message);

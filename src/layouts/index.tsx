@@ -10,8 +10,28 @@ import logo512 from "../images/icon_x512.png";
 import Button from "@mui/material/Button";
 import { Helmet } from "react-helmet";
 import { createContext } from "react";
-import Context from "../components/Provider/Context";
 import useWindowDimensions from "../hooks/useWindowDimensions";
+import { useState, useEffect, useContext } from "react";
+import { signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { authentication } from "../components/firebase-config";
+// import firebase from "firebase/app";
+// import "firebase/auth";
+type User = {
+  displayName: string;
+  email: string;
+  idToken: string;
+};
+
+type Context = {
+  user: User;
+  signinwithGoogle: () => void;
+  signout: () => void;
+};
+export const UserContext = createContext<Context>({
+  user: null,
+  signinwithGoogle: () => {},
+  signout: () => {},
+});
 
 export const Dimensionscontext = createContext([0, 0, true]);
 // The above context is for passing device width and height using Hook I used and also standalone or not
@@ -21,8 +41,45 @@ function index({ children }) {
     ? true
     : false;
   const { height, width } = useWindowDimensions();
+  const [user, setuser] = useState<User>(undefined);
+  const provider = new GoogleAuthProvider();
+  //   useEffect(() => {}, []);
+  const signinwithGoogle = () => {
+    // console.log("object");
+    signInWithPopup(authentication, provider)
+      .then((res) => {
+        const User = res.user;
+        res.user.getIdToken().then((res) => {
+          setuser({
+            displayName: User.displayName,
+            email: User.email,
+            idToken: res,
+          });
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const signout = () => {
+    const auth = authentication;
+    // console.log('signout click');
+    signOut(auth)
+      .then(() => {
+        setuser(null)
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
-    <Context>
+    <UserContext.Provider
+      value={{
+        user,
+        signinwithGoogle,
+        signout,
+      }}
+    >
       <ThemeProvider theme={theme}>
         <Dimensionscontext.Provider value={[height, width, standaloneornot]}>
           <Helmet
@@ -75,7 +132,7 @@ function index({ children }) {
           {children}
         </Dimensionscontext.Provider>
       </ThemeProvider>
-    </Context>
+    </UserContext.Provider>
   );
 }
 

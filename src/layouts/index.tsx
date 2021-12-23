@@ -99,10 +99,7 @@ function index({ children }) {
             />
             <meta name="apple-mobile-web-app-capable" content="yes" />
             <title>Sunshine IITH</title>
-            <link
-              href="https://fonts.googleapis.com/css?family=Open+Sans"
-              rel="stylesheet"
-            />
+            <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet"></link>
             <link
               href={logo}
               sizes="330x330"

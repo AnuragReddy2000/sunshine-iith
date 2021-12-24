@@ -4,19 +4,30 @@
    margin: 0;
 }
 .Header{
-   font-weight: 900;
+   font-weight: 800;
    box-shadow: none;
 }
 .Links{
    color: #013289;
-   font-weight: 900;
+   font-weight: 700;
    font-family: 'Nunito','sans-serif';
    transition: color ease-in-out 0.1s;
    text-transform: none;
    font-size: 1rem;
    letter-spacing: 0.8px;
 }
+.links{
+   font-family: 'Nunito','sans-serif';
+   color: #013289;
+   font-weight: 600;
+   transition: all ease-in-out 0.1s;
+   text-transform: none;
+   font-size: 1rem;
+   letter-spacing: 0.8px;
+}
+.links:hover{
+   padding-left: 4px;
+}
 .Links:hover{
    color: #4154F1;
-   background-color: white;
 }

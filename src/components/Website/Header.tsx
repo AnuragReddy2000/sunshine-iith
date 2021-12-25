@@ -15,6 +15,7 @@ import Dropdownmenu from "./Dropdownmenu";
 import ClearIcon from "@mui/icons-material/Clear";
 // import { makeStyles } from "@mui/styles";
 const pages = ["About", "Home"];
+const pages1 = ["Home", "About"];
 function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -164,7 +165,7 @@ function Header() {
                     display: { xs: "block", md: "none" },
                   }}
                 >
-                  {pages.reverse().map((page) => (
+                  {pages1.map((page) => (
                     <MenuItem key={page} onClick={handleCloseNavMenu}>
                       <span className={styles.links}>{page}</span>
                     </MenuItem>

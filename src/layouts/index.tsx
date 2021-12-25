@@ -7,7 +7,6 @@ import logo96 from "../images/icon_x96.png";
 import logo128 from "../images/icon_x128.png";
 import logo192 from "../images/icon_x192.png";
 import logo512 from "../images/icon_x512.png";
-import Button from "@mui/material/Button";
 import { Helmet } from "react-helmet";
 import { createContext } from "react";
 import useWindowDimensions from "../hooks/useWindowDimensions";
@@ -41,7 +40,7 @@ function index({ children }) {
     ? true
     : false;
   const { height, width } = useWindowDimensions();
-  const [user, setuser] = useState<User>(undefined);
+  const [user, setuser] = useState<User>(null);
   const provider = new GoogleAuthProvider();
   //   useEffect(() => {}, []);
   const signinwithGoogle = () => {

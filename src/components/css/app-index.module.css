@@ -1,0 +1,33 @@
+:root {
+  --theme: rgb(242, 186, 73);
+}
+
+.maindiv {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rgb(241, 241, 241); */
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 80%;
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: "Open sans", sans-serif;
+}
+
+.loginhomeimage {
+  height: 300px;
+}
+
+.logincontent {
+  /* font-size: 28px; */
+  font-weight:500;
+  text-align: center;
+  line-height: 24px;
+}

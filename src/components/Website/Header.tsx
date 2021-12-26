@@ -91,13 +91,12 @@ function Header() {
                   <span className={styles.Links}>FAQs</span>
                 </Button>
                 <Dropdownmenu
+                  title="Articles"
+                  dropwdownoptions={["Newsletter", "Useful Articles"]}
+                />
+                <Dropdownmenu
                   title="Events"
-                  dropwdownoptions={[
-                    "Upcoming ",
-                    "Concluded",
-                    "Newsletter",
-                    "Articles",
-                  ]}
+                  dropwdownoptions={["Upcoming ", "Concluded"]}
                 />
                 <Dropdownmenu
                   title="People"
@@ -171,36 +170,39 @@ function Header() {
                     </MenuItem>
                   ))}
                   <Dropdownmenu
-                  title="Programmes"
-                  dropwdownoptions={["Mentorship Programme", "Buddy Programme"]}
-                />
-                <br/>
-                <Dropdownmenu
-                  title="People"
-                  dropwdownoptions={[
-                    "Core Team ",
-                    "Department Faculty Representatives",
-                    "UG Mentors Team",
-                    "PG Mentors Team",
-                    "UG Buddies Team",
-                    "PG Buddies Team",
-                    "Previous Teams",
-                  ]}
-                />
-                <br/>
-                  <Dropdownmenu
-                  title="Events"
-                  dropwdownoptions={[
-                    "Upcoming ",
-                    "Concluded",
-                    "Newsletter",
-                    "Articles",
-                  ]}
+                    title="Programmes"
+                    dropwdownoptions={[
+                      "Mentorship Programme",
+                      "Buddy Programme",
+                    ]}
                   />
-                  <br/>
-                <MenuItem onClick={handleCloseNavMenu}>
-                      <span className={styles.links}>FAQs</span>
-                    </MenuItem>
+                  <br />
+                  <Dropdownmenu
+                    title="People"
+                    dropwdownoptions={[
+                      "Core Team ",
+                      "Department Faculty Representatives",
+                      "UG Mentors Team",
+                      "PG Mentors Team",
+                      "UG Buddies Team",
+                      "PG Buddies Team",
+                      "Previous Teams",
+                    ]}
+                  />
+                  <br />
+                  <Dropdownmenu
+                    title="Events"
+                    dropwdownoptions={["Upcoming ", "Concluded"]}
+                  />
+                  <br />
+                  <Dropdownmenu
+                    title="Articles"
+                    dropwdownoptions={["Newsletter", "Useful Articles"]}
+                  />
+                  <br />
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    <span className={styles.links}>FAQs</span>
+                  </MenuItem>
                 </Menu>
               </Box>
             </Toolbar>

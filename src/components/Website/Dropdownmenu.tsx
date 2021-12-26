@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import * as styles from "../css/index.module.css";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-function Dropdownmenu({title,dropwdownoptions}) {
+function Dropdownmenu({ title, dropwdownoptions }) {
   const StyledMenu = styled((props: MenuProps) => (
     <Menu
       elevation={0}
@@ -23,8 +23,8 @@ function Dropdownmenu({title,dropwdownoptions}) {
   ))(({ theme }) => ({
     "& .MuiPaper-root": {
       borderRadius: 6,
-      marginTop: theme.spacing(1),
       minWidth: 180,
+      marginTop: theme.spacing(2),
       color:
         theme.palette.mode === "light"
           ? "rgb(55, 65, 81)"
@@ -55,7 +55,7 @@ function Dropdownmenu({title,dropwdownoptions}) {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
-    setAnchorEl(null);
+    setAnchorEl(undefined);
   };
   // const dropwdownoptions = ["Edit", "Select", "Paste", "Use"];
   return (
@@ -69,7 +69,13 @@ function Dropdownmenu({title,dropwdownoptions}) {
         variant="contained"
         disableElevation
         onClick={handleClick}
-        endIcon={<KeyboardArrowDownIcon style={{ color: "#444444" }} />}
+        endIcon={
+          <KeyboardArrowDownIcon
+          onClick={handleClick}
+            onMouseOver={handleClick}
+            style={{ color: "#444444" }}
+          />
+        }
       >
         <span className={styles.Links}>{title}</span>
       </Button>
@@ -78,15 +84,24 @@ function Dropdownmenu({title,dropwdownoptions}) {
         MenuListProps={{
           "aria-labelledby": "demo-customized-button",
         }}
+        onMouseLeave={handleClose}
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
       >
-        {dropwdownoptions.map((item,index) => (
-          <MenuItem onClick={handleClose} disableRipple >
-            <span className={styles.links} key={index}>{item}</span>
-          </MenuItem>
-        ))}
+        <div onMouseLeave={handleClose} style={{alignItems:'right'}}>
+          {dropwdownoptions.map((item, index) => (
+            <MenuItem style={{alignItems:'right',textAlign: "right"}} onClick={handleClose} disableRipple>
+              <span
+                className={styles.links}
+                key={index}
+                style={{ textAlign: "right" }}
+              >
+                {item}
+              </span>
+            </MenuItem>
+          ))}
+        </div>
       </StyledMenu>
     </React.Fragment>
   );

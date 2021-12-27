@@ -147,12 +147,13 @@ function Header({ anchorElNav, handleOpenNavMenu, handleCloseNavMenu }) {
               }}
               PaperProps={{
                 style: {
-                  height: "70vh",
+                  marginTop:"14vh",
+                  height: "50vh",
                   width: "94vw",
                   overflowY: "scroll",
                   display: "flex",
                   flexDirection: "column",
-                  justifyContent: window.innerWidth<600?"space-around":'',
+                  // justifyContent: window.innerWidth<600?"space-around":'',
                   left: "0px !important",
                 },
               }}

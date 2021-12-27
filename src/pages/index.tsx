@@ -9,16 +9,25 @@ import Login from "../components/App/Login";
 // import { signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 // import { authentication } from "../components/firebase-config";
 const IndexPage = () => {
-  const { user, signinwithGoogle, signout } = useContext(UserContext);
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null
+  );
+  let prompter: any = null;
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+  const {user,signinwithGoogle,signout}=useContext(UserContext)
   const [height, width, standaloneornot] = useContext(Dimensionscontext);
   return (
     <React.Fragment>
       {standaloneornot ? (
-        
-        <Login />
+        <Login/>
       ) : (
-        <React.Fragment>
-          <Header />
+        <div style={{background:anchorElNav?'rgba(1, 22, 61, 0.9)':'none'}}>
+          <Header anchorElNav={anchorElNav} handleOpenNavMenu={handleOpenNavMenu} handleCloseNavMenu={handleCloseNavMenu}/>
           <Typography>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
             impedit blanditiis inventore quasi dolorum omnis ut dicta possimus,
@@ -139,7 +148,7 @@ const IndexPage = () => {
             magni aliquid, rerum impedit iure cumque architecto ipsa, ratione
             nobis veniam dolores aliquam!
           </Typography>
-        </React.Fragment>
+        </div>
       )}
     </React.Fragment>
   );

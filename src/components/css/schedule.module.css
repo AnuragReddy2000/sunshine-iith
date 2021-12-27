@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@500&display=swap');
+.ColourThis{
+   display: block;
+   width: 100vw;
+}
+@media screen and (max-width:300px){
+   .image{
+      height:85px;
+      width:85px;
+      display: block;
+      margin: auto;
+      z-index: 1000;
+      border-radius: 50%;
+      position:relative;
+      bottom:42px;
+   }
+}
+@media screen and (min-width:300px) and (max-width:700px){
+   .image{
+      height:115px;
+      width:115px;
+      display: block;
+      margin: auto;
+      z-index: 1000;
+      border-radius: 50%;
+      position:relative;
+      bottom:56px;
+   }
+}
+@media screen and (min-width:700px) {
+   .image{
+      height:135px;
+      width:135px;
+      display: block;
+      margin: auto;
+      z-index: 1000;
+      border-radius: 50%;
+      position:relative;
+      bottom:66px;
+   }
+}
+
+.mainmatter{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+   height: 60vh;
+}

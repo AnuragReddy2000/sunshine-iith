@@ -24,7 +24,7 @@ function Dropdownmenu({ title, dropwdownoptions }) {
     "& .MuiPaper-root": {
       borderRadius: 6,
       minWidth: 180,
-      marginTop: theme.spacing(2),
+      marginTop: window.innerWidth<=768?theme.spacing(0.5):theme.spacing(1.5),
       color:
         theme.palette.mode === "light"
           ? "rgb(55, 65, 81)"

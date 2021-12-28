@@ -7,6 +7,7 @@ function tell() {
    return (
       <div>
          Hello {user?user.displayName:''}
+         <button onClick={signout}>Sign out</button>
       </div>
    )
 }

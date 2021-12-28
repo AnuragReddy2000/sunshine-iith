@@ -9,6 +9,7 @@ import logo192 from "../images/icon_x192.png";
 import logo512 from "../images/icon_x512.png";
 import { Helmet } from "react-helmet";
 import { createContext } from "react";
+import firebase from "firebase/app";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import { useState, useEffect, useContext } from "react";
 import { signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -42,6 +43,27 @@ function index({ children }) {
   const { height, width } = useWindowDimensions();
   const [user, setuser] = useState<User>(null);
   const provider = new GoogleAuthProvider();
+  useEffect(() => {
+    authentication.onAuthStateChanged(async (User: firebase.User) => {
+      if (User) {
+        authentication.currentUser
+          .getIdToken(true)
+          .then(function (idToken) {
+            const { displayName, email } = User;
+            setuser({
+              displayName,
+              email,
+              idToken,
+            });
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      } else {
+        setuser(null);
+      }
+    });
+  }, []);
   //   useEffect(() => {}, []);
   const signinwithGoogle = () => {
     // console.log("object");
@@ -53,11 +75,12 @@ function index({ children }) {
           return;
         } else {
           res.user.getIdToken().then((res) => {
-            setuser({
-              displayName: User.displayName,
-              email: User.email,
-              idToken: res,
-            });
+            // setuser({
+            //   displayName: User.displayName,
+            //   email: User.email,
+            //   idToken: res,
+            // });
+            console.log(res);
           });
         }
       })
@@ -98,7 +121,10 @@ function index({ children }) {
             />
             <meta name="apple-mobile-web-app-capable" content="yes" />
             <title>Sunshine IITH</title>
-            <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet"></link>
+            <link
+              href="https://fonts.googleapis.com/css2?family=Nunito&display=swap"
+              rel="stylesheet"
+            ></link>
             <link
               href={logo}
               sizes="330x330"

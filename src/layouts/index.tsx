@@ -37,6 +37,7 @@ export const UserContext = createContext<Context>({
 export const Dimensionscontext = createContext([0, 0, true]);
 // The above context is for passing device width and height using Hook I used and also standalone or not
 function index({ children }) {
+  let path=window.location.href.split('/')[0];
   const standaloneornot = window.matchMedia("(display-mode: standalone)")
     .matches
     ? true

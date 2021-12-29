@@ -24,7 +24,8 @@ function Dropdownmenu({ title, dropwdownoptions }) {
     "& .MuiPaper-root": {
       borderRadius: 6,
       minWidth: 180,
-      marginTop: window.innerWidth<=768?theme.spacing(0.5):theme.spacing(1.5),
+      marginTop:
+        window.innerWidth <= 768 ? theme.spacing(0.5) : theme.spacing(1.5),
       color:
         theme.palette.mode === "light"
           ? "rgb(55, 65, 81)"
@@ -71,27 +72,36 @@ function Dropdownmenu({ title, dropwdownoptions }) {
         onClick={handleClick}
         endIcon={
           <KeyboardArrowDownIcon
-          onClick={handleClick}
+            onClick={handleClick}
             onMouseOver={handleClick}
             style={{ color: "#444444" }}
           />
         }
       >
-        <span className={styles.Links}>{title}</span>
+        <span
+          className={styles.Links}
+          onMouseOver={handleClick}
+          onClick={handleClick}
+        >
+          {title}
+        </span>
       </Button>
       <StyledMenu
         id="demo-customized-menu"
         MenuListProps={{
           "aria-labelledby": "demo-customized-button",
         }}
-        onMouseLeave={handleClose}
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
       >
-        <div onMouseLeave={handleClose} style={{alignItems:'right'}}>
+        <div onMouseLeave={handleClose} style={{ alignItems: "right" }}>
           {dropwdownoptions.map((item, index) => (
-            <MenuItem style={{alignItems:'right',textAlign: "right"}} onClick={handleClose} disableRipple>
+            <MenuItem
+              style={{ alignItems: "right", textAlign: "right" }}
+              onClick={handleClose}
+              disableRipple
+            >
               <span
                 className={styles.links}
                 key={index}

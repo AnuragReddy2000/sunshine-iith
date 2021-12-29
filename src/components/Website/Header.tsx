@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
+import Logo from '../../../public/favicon-32x32.png'
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
@@ -16,6 +17,7 @@ import ClearIcon from "@mui/icons-material/Clear";
 // import { makeStyles } from "@mui/styles";
 const pages = ["Home"];
 function Header({ anchorElNav, handleOpenNavMenu, handleCloseNavMenu }) {
+  const path:string=window.location.href.split('/')[3];
   const [scrolled, setscrolled] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -48,7 +50,8 @@ function Header({ anchorElNav, handleOpenNavMenu, handleCloseNavMenu }) {
               color: "#444444",
             }}
           >
-            LOGO
+            {path==''?'':(<span><img src={Logo}/></span>)}
+            {path==''?'Sunshine':path.toUpperCase()} 
           </Typography>
           <Typography
             variant="h6"
@@ -61,7 +64,7 @@ function Header({ anchorElNav, handleOpenNavMenu, handleCloseNavMenu }) {
               ml: 2,
             }}
           >
-            LOGO
+            Sunshine 
           </Typography>
           <Box
             sx={{

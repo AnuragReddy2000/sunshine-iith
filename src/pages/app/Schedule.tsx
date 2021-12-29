@@ -1,8 +1,8 @@
 import * as React from "react";
-import Doddle from "../images/sunshine_4.png";
+import Doddle from "../../images/sunshine_9.jpg";
 import SendIcon from '@mui/icons-material/Send';
-import * as styles from "../components/css/schedule.module.css";
-import Logo from "../images/logo.png";
+import * as styles from "../../components/css/schedule.module.css";
+import Logo from "../../images/logo.png";
 import { Fab } from "@mui/material";
 function Schedule() {
   return (

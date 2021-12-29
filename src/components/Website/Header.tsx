@@ -14,8 +14,7 @@ import * as styles from "../css/index.module.css";
 import Dropdownmenu from "./Dropdownmenu";
 import ClearIcon from "@mui/icons-material/Clear";
 // import { makeStyles } from "@mui/styles";
-const pages = ["About", "Home"];
-const pages1 = ["Home", "About"];
+const pages = ["Home"];
 function Header({ anchorElNav, handleOpenNavMenu, handleCloseNavMenu }) {
   const [scrolled, setscrolled] = useState(false);
   useEffect(() => {
@@ -168,7 +167,7 @@ function Header({ anchorElNav, handleOpenNavMenu, handleCloseNavMenu }) {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages1.map((page) => (
+              {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <span className={styles.links}>{page}</span>
                 </MenuItem>

@@ -8,6 +8,7 @@ import logo128 from "../images/icon_x128.png";
 import logo192 from "../images/icon_x192.png";
 import logo512 from "../images/icon_x512.png";
 import { Helmet } from "react-helmet";
+import Header from "../components/Website/Header";
 import { createContext } from "react";
 import firebase from "firebase/app";
 import useWindowDimensions from "../hooks/useWindowDimensions";
@@ -88,6 +89,15 @@ function index({ children }) {
         console.log(err);
       });
   };
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null
+  );
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
   const signout = () => {
     const auth = authentication;
     // console.log('signout click');
@@ -156,7 +166,22 @@ function index({ children }) {
               rel="apple-touch-startup-image"
             ></link>
           </Helmet>
-          {children}
+          {standaloneornot ? (
+            ""
+          ) : (
+            <div
+              style={{
+                background: anchorElNav ? "rgba(1, 22, 61, 0.9)" : "none",
+              }}
+            >
+              <Header
+                anchorElNav={anchorElNav}
+                handleOpenNavMenu={handleOpenNavMenu}
+                handleCloseNavMenu={handleCloseNavMenu}
+              />
+              {children}
+            </div>
+          )}
         </Dimensionscontext.Provider>
       </ThemeProvider>
     </UserContext.Provider>

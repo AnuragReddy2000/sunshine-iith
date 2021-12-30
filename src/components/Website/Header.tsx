@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import Logo from '../../../public/favicon-32x32.png'
+import Logo from "../../../public/favicon-32x32.png";
+import { Dimensionscontext } from "../../layouts";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
@@ -15,9 +16,9 @@ import * as styles from "../css/index.module.css";
 import Dropdownmenu from "./Dropdownmenu";
 import ClearIcon from "@mui/icons-material/Clear";
 // import { makeStyles } from "@mui/styles";
-const pages = ["Home"];
 function Header({ anchorElNav, handleOpenNavMenu, handleCloseNavMenu }) {
-  const path:string=window.location.href.split('/')[3];
+  const path: string = window.location.href.split("/")[3];
+  const [height, width, standaloneornot] = useContext(Dimensionscontext);
   const [scrolled, setscrolled] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -50,8 +51,16 @@ function Header({ anchorElNav, handleOpenNavMenu, handleCloseNavMenu }) {
               color: "#444444",
             }}
           >
-            {path==''?'':(<span><img src={Logo}/></span>)}
-            {path==''?'Sunshine':path.toUpperCase()} 
+            {path == "" ? (
+              ""
+            ) : (
+              <a href="/">
+                <img src={Logo} />
+              </a>
+            )}
+            <a href="/" style={{ textDecoration: "none", color: "#f5a623" }}>
+              {path == "" ? "Sunshine" : path.toUpperCase()}
+            </a>
           </Typography>
           <Typography
             variant="h6"
@@ -64,7 +73,16 @@ function Header({ anchorElNav, handleOpenNavMenu, handleCloseNavMenu }) {
               ml: 2,
             }}
           >
-            Sunshine 
+            {path == "" ? (
+              ""
+            ) : (
+              <span>
+                <img src={Logo} />
+              </span>
+            )}
+            <a href="/" style={{ textDecoration: "none", color: "#f5a623" }}>
+              {path == "" ? "Sunshine" : path.toUpperCase()}
+            </a>
           </Typography>
           <Box
             sx={{
@@ -79,135 +97,168 @@ function Header({ anchorElNav, handleOpenNavMenu, handleCloseNavMenu }) {
               onClick={handleCloseNavMenu}
               sx={{ my: 2, mr: 2, display: "block" }}
             >
-              <span className={styles.Links}>FAQs</span>
+              <a
+                href="/"
+                style={{ textDecoration: "none" }}
+                className={styles.Links}
+              >
+                FAQs
+              </a>
             </Button>
             <Dropdownmenu
               title="Articles"
-              dropwdownoptions={["Newsletter", "Useful Articles"]}
+              dropwdownoptions={[
+                ["Newsletter", "/"],
+                ["Useful Articles", "/"],
+              ]}
             />
             <Dropdownmenu
               title="Events"
-              dropwdownoptions={["Upcoming ", "Concluded"]}
+              dropwdownoptions={[
+                ["Upcoming ", "/"],
+                ["Concluded", "/"],
+              ]}
             />
             <Dropdownmenu
               title="People"
               dropwdownoptions={[
-                "Core Team ",
-                "Department Faculty Representatives",
-                "UG Mentors Team",
-                "PG Mentors Team",
-                "UG Buddies Team",
-                "PG Buddies Team",
-                "Previous Teams",
+                ["Core Team ", "/"],
+                ["Department Faculty Representatives", "/"],
+                ["UG Mentors Team", "/"],
+                ["PG Mentors Team", "/"],
+                ["UG Buddies Team", "/"],
+                ["PG Buddies Team", "/"],
+                ["Previous Teams", "/"],
               ]}
             />
             <Dropdownmenu
               title="Programmes"
-              dropwdownoptions={["Mentorship Programme", "Buddy Programme"]}
+              dropwdownoptions={[
+                ["Mentorship Programme", "/"],
+                ["Buddy Programme", "/"],
+              ]}
             />
-            {pages.map((page) => (
-              <Button
-                disableRipple
-                key={page}
-                style={{ backgroundColor: "transparent" }}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, mr: 2, display: "block" }}
+            <Button
+              disableRipple
+              style={{ backgroundColor: "transparent" }}
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, mr: 2, display: "block" }}
+            >
+              <a
+                href="/"
+                style={{ textDecoration: "none" }}
+                className={styles.Links}
               >
-                <span className={styles.Links}>{page}</span>
-              </Button>
-            ))}
+                Home
+              </a>
+            </Button>
           </Box>
           {/* Now onwards it is mobile version design */}
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: "flex", md: "none" },
-              flexFlow: "row-reverse",
-            }}
-          >
-            <IconButton
-              disableRipple
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
+          {standaloneornot ? (
+            ""
+          ) : (
+            <Box
               sx={{
-                color: anchorElNav ? "white" : "#444444",
-                cursor: "pointer",
+                flexGrow: 1,
+                display: { xs: "flex", md: "none" },
+                flexFlow: "row-reverse",
               }}
             >
-              {anchorElNav ? <ClearIcon /> : <MenuIcon />}
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "center",
-              }}
-              PaperProps={{
-                style: {
-                  marginTop:"14vh",
-                  height: "50vh",
-                  width: "94vw",
-                  overflowY: "scroll",
-                  display: "flex",
-                  flexDirection: "column",
-                  // justifyContent: window.innerWidth<600?"space-around":'',
-                  left: "0px !important",
-                },
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "center",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <span className={styles.links}>{page}</span>
+              <IconButton
+                disableRipple
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+                sx={{
+                  color: anchorElNav ? "white" : "#444444",
+                  cursor: "pointer",
+                }}
+              >
+                {anchorElNav ? <ClearIcon /> : <MenuIcon />}
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "center",
+                }}
+                PaperProps={{
+                  style: {
+                    marginTop: "14vh",
+                    height: "50vh",
+                    width: "94vw",
+                    overflowY: "scroll",
+                    display: "flex",
+                    flexDirection: "column",
+                    // justifyContent: window.innerWidth<600?"space-around":'',
+                    left: "0px !important",
+                  },
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "center",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: "block", md: "none" },
+                }}
+              >
+                <a href="/" style={{ textDecoration: "none" }}>
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    <span className={styles.links}>Home</span>
+                  </MenuItem>
+                </a>
+                <Dropdownmenu
+                  title="Programmes"
+                  dropwdownoptions={[
+                    ["Mentorship Programme", "/"],
+                    ["Buddy Programme", "/"],
+                  ]}
+                />
+                <br />
+                <Dropdownmenu
+                  title="People"
+                  dropwdownoptions={[
+                    ["Core Team ", "/"],
+                    ["Department Faculty Representatives", "/"],
+                    ["UG Mentors Team", "/"],
+                    ["PG Mentors Team", "/"],
+                    ["UG Buddies Team", "/"],
+                    ["PG Buddies Team", "/"],
+                    ["Previous Teams", "/"],
+                  ]}
+                />
+                <br />
+                <Dropdownmenu
+                  title="Events"
+                  dropwdownoptions={[
+                    ["Upcoming ", "/"],
+                    ["Concluded", "/"],
+                  ]}
+                />
+                <br />
+                <Dropdownmenu
+                  title="Articles"
+                  dropwdownoptions={[
+                    ["Newsletter", "/"],
+                    ["Useful Articles", "/"],
+                  ]}
+                />
+                <br />
+                <a href="/" style={{ textDecoration: "none" }}>
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <span className={styles.links}>FAQs</span>
                 </MenuItem>
-              ))}
-              <Dropdownmenu
-                title="Programmes"
-                dropwdownoptions={["Mentorship Programme", "Buddy Programme"]}
-              />
-              <br />
-              <Dropdownmenu
-                title="People"
-                dropwdownoptions={[
-                  "Core Team ",
-                  "Department Faculty Representatives",
-                  "UG Mentors Team",
-                  "PG Mentors Team",
-                  "UG Buddies Team",
-                  "PG Buddies Team",
-                  "Previous Teams",
-                ]}
-              />
-              <br />
-              <Dropdownmenu
-                title="Events"
-                dropwdownoptions={["Upcoming ", "Concluded"]}
-              />
-              <br />
-              <Dropdownmenu
-                title="Articles"
-                dropwdownoptions={["Newsletter", "Useful Articles"]}
-              />
-              <br />
-              <MenuItem onClick={handleCloseNavMenu}>
-                <span className={styles.links}>FAQs</span>
-              </MenuItem>
-            </Menu>
-          </Box>
+                </a>
+              </Menu>
+            </Box>
+          )}
         </Toolbar>
       </AppBar>
     </StylesProvider>

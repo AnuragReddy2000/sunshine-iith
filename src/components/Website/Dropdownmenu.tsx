@@ -51,6 +51,8 @@ function Dropdownmenu({ title, dropwdownoptions }) {
     },
   }));
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [isTrue1, setisTrue1] = useState(false);
+  const [isTrue2, setisTrue2] = useState(true);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -58,7 +60,13 @@ function Dropdownmenu({ title, dropwdownoptions }) {
   const handleClose = () => {
     setAnchorEl(undefined);
   };
-  // const dropwdownoptions = ["Edit", "Select", "Paste", "Use"];
+
+  const handle = () => {
+    setisTrue1(true);
+    if (isTrue1 == true && isTrue2 == true) {
+      setAnchorEl(undefined);
+    }
+  };
   return (
     <React.Fragment>
       <Button
@@ -82,6 +90,7 @@ function Dropdownmenu({ title, dropwdownoptions }) {
           className={styles.Links}
           onMouseOver={handleClick}
           onClick={handleClick}
+          onMouseLeave={handle}
         >
           {title}
         </span>
@@ -95,21 +104,15 @@ function Dropdownmenu({ title, dropwdownoptions }) {
         open={open}
         onClose={handleClose}
       >
-        <div onMouseLeave={handleClose} style={{ alignItems: "right" }}>
+        <div onMouseLeave={handleClose} onMouseOver={() => setisTrue2(false)}>
           {dropwdownoptions.map((item, index) => (
-            <MenuItem
-              style={{ alignItems: "right", textAlign: "right" }}
-              onClick={handleClose}
-              disableRipple
-            >
-              <span
-                className={styles.links}
-                key={index}
-                style={{ textAlign: "right" }}
-              >
-                {item}
-              </span>
-            </MenuItem>
+            <a href={item[1]} style={{ textDecoration: "none" }}>
+              <MenuItem onClick={handleClose} disableRipple>
+                <span className={styles.links} key={index}>
+                  {item[0]}
+                </span>
+              </MenuItem>
+            </a>
           ))}
         </div>
       </StyledMenu>

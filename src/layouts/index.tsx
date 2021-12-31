@@ -21,6 +21,7 @@ type User = {
   displayName: string;
   email: string;
   idToken: string;
+  photoURL: string;
 };
 
 type Context = {
@@ -37,11 +38,11 @@ export const UserContext = createContext<Context>({
 export const Dimensionscontext = createContext([0, 0, true]);
 // The above context is for passing device width and height using Hook I used and also standalone or not
 function index({ children }) {
-  let path=window.location.href.split('/')[0];
+  let path = window.location.href.split("/")[0];
   const standaloneornot = window.matchMedia("(display-mode: standalone)")
     .matches
     ? true
-    : false;
+    : true;
   const { height, width } = useWindowDimensions();
   const [user, setuser] = useState<User>(null);
   const provider = new GoogleAuthProvider();
@@ -51,11 +52,12 @@ function index({ children }) {
         authentication.currentUser
           .getIdToken(true)
           .then(function (idToken) {
-            const { displayName, email } = User;
+            const { displayName, email, photoURL } = User;
             setuser({
               displayName,
               email,
               idToken,
+              photoURL,
             });
           })
           .catch(function (error) {
@@ -76,14 +78,7 @@ function index({ children }) {
           signout();
           return;
         } else {
-          res.user.getIdToken().then((res) => {
-            // setuser({
-            //   displayName: User.displayName,
-            //   email: User.email,
-            //   idToken: res,
-            // });
-            console.log(res);
-          });
+          res.user.getIdToken().then((res) => {});
         }
       })
       .catch((err) => {
@@ -168,7 +163,7 @@ function index({ children }) {
             ></link>
           </Helmet>
           {standaloneornot ? (
-            ""
+            <React.Fragment>{children}</React.Fragment>
           ) : (
             <div
               style={{

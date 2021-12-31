@@ -10,11 +10,8 @@ export default function Login() {
   let prompter: any = null;
   const {user,signinwithGoogle,signout}=useContext(UserContext)
   useEffect(() => {
-    console.log("triggered");
-    console.log(window);
     if (window !== undefined) {
       window.addEventListener("beforeinstallprompt", (e) => {
-        console.log("boo");
         e.preventDefault();
         prompter = e;
       });
@@ -22,7 +19,7 @@ export default function Login() {
   }, []);
   useEffect(() => {
     if (user) {
-      navigate("/tell");
+      navigate("/home");
       // just to test whether working or not I used tell page
     }
   }, [user]);

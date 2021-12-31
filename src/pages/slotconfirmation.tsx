@@ -1,8 +1,8 @@
 import React, { useState, useEffect,useContext } from "react";
-import Logo from "../../images/logo.png";
+import Logo from "../images/logo.png";
 import TextField from "@mui/material/TextField";
-import { UserContext } from "../../layouts";
-import * as styles from "../../components/Css/schedule.module.css";
+import { UserContext } from "../layouts";
+import * as styles from "../components/Css/schedule.module.css";
 import Box from "@mui/material/Box";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";

@@ -1,0 +1,82 @@
+* {
+  padding: 0;
+  margin: 0;
+  /* overflow: hidden; */
+}
+.homeimage {
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1000;
+  margin-bottom: 0.5vh;
+}
+.rounditimage {
+  border-radius: 50%;
+}
+.Cardcat {
+  display: flex;
+}
+.explore {
+  margin-top: 2vh;
+  /* padding: 4px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media screen and (max-width: 340px) {
+  .Cardcat {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 500px) and (max-width: 610px) {
+  .explore {
+    padding: 10px;
+    width: 60vw;
+  }
+}
+@media screen and (min-width: 400px) and (max-width: 500px) {
+  .explore {
+    padding: 10px;
+    width: 80vw;
+  }
+}
+@media screen and (min-width: 610px) and (max-width: 685px) {
+  .explore {
+    padding: 10px;
+    width: 50vw;
+  }
+}
+@media screen and (min-width: 685px) and (max-width: 900px) {
+  .explore {
+    padding: 10px;
+    width: 45vw;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1000px) {
+  .explore {
+    padding: 10px;
+    width: 40vw;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .explore {
+    padding: 10px;
+    width: 30vw;
+  }
+}
+.slider {
+  margin-top: 2vh;
+  display: flex;
+  overflow-x: scroll;
+}
+.colorit {
+  /* background: #f5a523d3; */
+  min-height: 100vh;
+  /* overflow-x: hidden; */
+  /* color: white; */
+  width: 100vw;
+}
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}

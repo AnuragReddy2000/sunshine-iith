@@ -1,8 +1,8 @@
 import * as React from "react";
-import Doddle from "../../images/sunshine_9.jpg";
+import Doddle from "../images/sunshine_9.jpg";
 import SendIcon from '@mui/icons-material/Send';
-import * as styles from "../../components/css/schedule.module.css";
-import Logo from "../../images/logo.png";
+import * as styles from "../components/css/schedule.module.css";
+import Logo from "../images/logo.png";
 import { Fab } from "@mui/material";
 function Schedule() {
   return (
@@ -29,7 +29,7 @@ function Schedule() {
         <p style={{textAlign:"center", width:"90%", margin:"15px auto"}}>Come over and meet one of us. Let us sit back, relax and have a chat about what is on your mind.</p>
         </div>
       {/* </div> */}
-      <div style={{display:"flex",alignItems:"center",justifyContent:"center",marginTop:"20px"}}>
+      <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
         <Fab variant="extended" href="/slotconfirmation" sx={{backgroundColor:"#F2BA49"}}>
           Ask for a Slot
           <SendIcon style={{marginLeft:"12px"}}/>

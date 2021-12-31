@@ -7,13 +7,13 @@ import Schedule from "../images/schedule.svg";
 import Team from "../images/Team.svg";
 import Articles from "../images/Articles.svg";
 import FAQs from "../images/FAQs.svg";
-import Programmes from '../images/Programmes.jpg';
-import Events from '../images/Events.svg';
+import Programmes from "../images/Programmes.jpg";
+import Events from "../images/Events.svg";
 import { Button } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardActionArea from "@mui/material/CardActionArea";
-import CardComponent from '../components/App/CardComponent';
+import CardComponent from "../components/App/CardComponent";
 import Paper from "@mui/material/Paper";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
@@ -142,11 +142,56 @@ function home() {
           Features
         </Typography>
         <div className={styles.slider}>
-          <CardComponent title="Programmes" image={Programmes}/>
-          <CardComponent title="Team" image={Team}/>
-          <CardComponent title="Events" image={Events}/>
-          <CardComponent title="Articles" image={Articles}/>
-          <CardComponent title="FAQs" image={FAQs}/>
+          <CardComponent title="Programmes" image={Programmes} onclick={null} size={220} />
+          <CardComponent title="Team" image={Team} onclick={null} size={220}/>
+          <CardComponent title="Events" image={Events} onclick={null} size={220}/>
+          <CardComponent title="Articles" image={Articles} onclick={null} size={220}/>
+          <CardComponent title="FAQs" image={FAQs} onclick="/" size={220}/>
+        </div>
+        <Typography
+          variant="h6"
+          style={{ marginTop: "2vh", marginBottom: "2vh" }}
+        >
+          Programmes
+        </Typography>
+        <div className={styles.slider}>
+          <CardComponent title="Mentorship" image={Programmes} onclick="/" size={154}/>
+          <CardComponent title="Buddy Program" image={Programmes} onclick="/" size={154}/>
+        </div>
+        <Typography
+          variant="h6"
+          style={{ marginTop: "2vh", marginBottom: "2vh" }}
+        >
+          Team
+        </Typography>
+        <div className={styles.slider}>
+          <CardComponent title="Core Team" image={Programmes} onclick="/" size={220}/>
+          <CardComponent title="Faculty Representatives" image={Programmes} onclick="/" size={220}/>
+          <CardComponent title="UG Mentors" image={Programmes} onclick="/" size={220}/>
+          <CardComponent title="PG Mentors" image={Programmes} onclick="/" size={220}/>
+          <CardComponent title="UG Buddies" image={Programmes} onclick="/" size={220}/>
+          <CardComponent title="PG Buddies" image={Programmes} onclick="/" size={220}/>
+          <CardComponent title="Previous Teams" image={Programmes} onclick="/" size={220}/>
+        </div>
+        <Typography
+          variant="h6"
+          style={{ marginTop: "2vh", marginBottom: "2vh" }}
+        >
+          Events
+        </Typography>
+        <div className={styles.slider}>
+          <CardComponent title="Upcoming" image={Programmes} onclick="/" size={154}/>
+          <CardComponent title="Concluded" image={Programmes} onclick="/" size={154}/>
+        </div>
+        <Typography
+          variant="h6"
+          style={{ marginTop: "2vh", marginBottom: "2vh" }}
+        >
+          Articles
+        </Typography>
+        <div className={styles.slider}>
+          <CardComponent title="NewsLetter" image={Programmes} onclick="/" size={154}/>
+          <CardComponent title="Other Aticles" image={Programmes} onclick="/" size={154}/>
         </div>
       </Container>
     </div>

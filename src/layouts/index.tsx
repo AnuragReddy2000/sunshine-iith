@@ -42,7 +42,7 @@ function index({ children }) {
   const standaloneornot = window.matchMedia("(display-mode: standalone)")
     .matches
     ? true
-    : true;
+    : false;
   const { height, width } = useWindowDimensions();
   const [user, setuser] = useState<User>(null);
   const provider = new GoogleAuthProvider();
@@ -53,12 +53,14 @@ function index({ children }) {
           .getIdToken(true)
           .then(function (idToken) {
             const { displayName, email, photoURL } = User;
-            setuser({
-              displayName,
-              email,
-              idToken,
-              photoURL,
-            });
+            if (email.includes("iith.ac.in")) {
+              setuser({
+                displayName,
+                email,
+                idToken,
+                photoURL,
+              });
+            }
           })
           .catch(function (error) {
             console.log(error);

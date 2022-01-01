@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MenuProps } from "@mui/material/Menu";
 import { styled, alpha } from "@mui/material/styles";
 import Menu from "@mui/material/Menu";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import * as styles from "../css/index.module.css";
+import { Dimensionscontext } from "../../layouts";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 function Dropdownmenu({ title, dropwdownoptions }) {
   const StyledMenu = styled((props: MenuProps) => (
@@ -55,6 +56,7 @@ function Dropdownmenu({ title, dropwdownoptions }) {
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
+  const [height, width, standaloneornot] = useContext(Dimensionscontext);
   const handleClose = () => {
     setAnchorEl(undefined);
   };
@@ -68,21 +70,27 @@ function Dropdownmenu({ title, dropwdownoptions }) {
         aria-expanded={open ? "true" : undefined}
         variant="contained"
         disableElevation
-        onClick={handleClick}
+        // onClick={handleClick}
         endIcon={
           <KeyboardArrowDownIcon
-            onClick={handleClick}
             onMouseOver={handleClick}
             style={{ color: "#444444" }}
           />
         }
       >
-        <span
-          className={styles.Links}
-          onClick={handleClick}
-        >
-          {title}
-        </span>
+        {width > 900 ? (
+          <span
+            className={styles.Links}
+            onMouseOver={handleClick}
+            onClick={handleClick}
+          >
+            {title}
+          </span>
+        ) : (
+          <div className={styles.Links} onClick={handleClick}>
+            {title}
+          </div>
+        )}
       </Button>
       <StyledMenu
         id="demo-customized-menu"

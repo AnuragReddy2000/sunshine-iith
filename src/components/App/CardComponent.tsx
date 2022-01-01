@@ -21,7 +21,9 @@ function CardComponent({ title, image, onclick, size, scrollto }) {
           if (onclick != null) {
             window.location.href = onclick;
           }
-          document.getElementsByClassName(`${scrollto}`)[0].scrollIntoView({behavior:'smooth'});
+          else{
+            document.getElementsByClassName(`${scrollto}`)[0].scrollIntoView({behavior:'smooth'});
+          }
         }}
       >
         <CardContent>

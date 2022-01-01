@@ -79,7 +79,6 @@ function Dropdownmenu({ title, dropwdownoptions }) {
       >
         <span
           className={styles.Links}
-          onMouseOver={handleClick}
           onClick={handleClick}
         >
           {title}

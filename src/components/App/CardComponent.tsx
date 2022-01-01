@@ -2,7 +2,7 @@ import React from "react";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-function CardComponent({ title, image, onclick, size }) {
+function CardComponent({ title, image, onclick, size, scrollto }) {
   return (
     <React.Fragment>
       <Card
@@ -21,6 +21,7 @@ function CardComponent({ title, image, onclick, size }) {
           if (onclick != null) {
             window.location.href = onclick;
           }
+          document.getElementsByClassName(`${scrollto}`)[0].scrollIntoView({behavior:'smooth'});
         }}
       >
         <CardContent>

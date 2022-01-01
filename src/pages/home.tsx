@@ -142,29 +142,31 @@ function home() {
           Features
         </Typography>
         <div className={styles.slider}>
-          <CardComponent title="Programmes" image={Programmes} onclick={null} size={220} />
-          <CardComponent title="Team" image={Team} onclick={null} size={220}/>
-          <CardComponent title="Events" image={Events} onclick={null} size={220}/>
-          <CardComponent title="Articles" image={Articles} onclick={null} size={220}/>
+          <CardComponent title="Programmes" image={Programmes} onclick={null} size={220} scrollto="Prog"/>
+          <CardComponent title="Team" image={Team} onclick={null} size={220} scrollto="Team"/>
+          <CardComponent title="Events" image={Events} onclick={null} size={220} scrollto="Events"/>
+          <CardComponent title="Articles" image={Articles} onclick={null} size={220} scrollto="Articles"/>
           <CardComponent title="FAQs" image={FAQs} onclick="/" size={220}/>
         </div>
         <Typography
           variant="h6"
           style={{ marginTop: "2vh", marginBottom: "2vh" }}
+          className="Prog"
         >
           Programmes
         </Typography>
-        <div className={styles.slider}>
+        <div className={`${styles.slider}`}>
           <CardComponent title="Mentorship" image={Programmes} onclick="/" size={154}/>
           <CardComponent title="Buddy Program" image={Programmes} onclick="/" size={154}/>
         </div>
         <Typography
           variant="h6"
           style={{ marginTop: "2vh", marginBottom: "2vh" }}
+          className="Team"
         >
           Team
         </Typography>
-        <div className={styles.slider}>
+        <div className={`${styles.slider}`}>
           <CardComponent title="Core Team" image={Programmes} onclick="/" size={220}/>
           <CardComponent title="Faculty Representatives" image={Programmes} onclick="/" size={220}/>
           <CardComponent title="UG Mentors" image={Programmes} onclick="/" size={220}/>
@@ -176,20 +178,22 @@ function home() {
         <Typography
           variant="h6"
           style={{ marginTop: "2vh", marginBottom: "2vh" }}
+          className="Events"
         >
           Events
         </Typography>
-        <div className={styles.slider}>
+        <div className={`${styles.slider}`}>
           <CardComponent title="Upcoming" image={Programmes} onclick="/" size={154}/>
           <CardComponent title="Concluded" image={Programmes} onclick="/" size={154}/>
         </div>
         <Typography
           variant="h6"
           style={{ marginTop: "2vh", marginBottom: "2vh" }}
+          className="Articles"
         >
           Articles
         </Typography>
-        <div className={styles.slider}>
+        <div className={`${styles.slider}`}>
           <CardComponent title="NewsLetter" image={Programmes} onclick="/" size={154}/>
           <CardComponent title="Other Aticles" image={Programmes} onclick="/" size={154}/>
         </div>

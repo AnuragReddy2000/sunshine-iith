@@ -73,7 +73,7 @@ function Dropdownmenu({ title, dropwdownoptions }) {
         // onClick={handleClick}
         endIcon={
           <KeyboardArrowDownIcon
-            onMouseOver={handleClick}
+            onClick={handleClick}
             style={{ color: "#444444" }}
           />
         }

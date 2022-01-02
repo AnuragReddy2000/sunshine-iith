@@ -85,12 +85,12 @@ function home() {
           open={Boolean(anchorEl)}
           onClose={handleClose}
         >
-          <MenuItem onClick={signout}>
+          {/* <MenuItem onClick={signout}>
             <ListItemIcon>
               <SupervisorAccountIcon fontSize="small" />
             </ListItemIcon>
             <ListItemText>My Account</ListItemText>
-          </MenuItem>
+          </MenuItem> */}
           <MenuItem onClick={signout}>
             <ListItemIcon>
               <ExitToAppRoundedIcon fontSize="small" />

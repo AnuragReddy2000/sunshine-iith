@@ -42,7 +42,7 @@ function index({ children }) {
   const standaloneornot = window.matchMedia("(display-mode: standalone)")
     .matches
     ? true
-    : true;
+    : false;
   const { height, width } = useWindowDimensions();
   const [user, setuser] = useState<User>(null);
   const provider = new GoogleAuthProvider();
@@ -86,15 +86,6 @@ function index({ children }) {
       .catch((err) => {
         console.log(err);
       });
-  };
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
   };
   const signout = () => {
     const auth = authentication;
@@ -169,9 +160,6 @@ function index({ children }) {
           ) : (
             <React.Fragment>
               <Header
-                anchorElNav={anchorElNav}
-                handleOpenNavMenu={handleOpenNavMenu}
-                handleCloseNavMenu={handleCloseNavMenu}
               />
               {children}
             </React.Fragment>

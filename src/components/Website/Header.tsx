@@ -15,8 +15,26 @@ import { StylesProvider } from "@mui/styles";
 import * as styles from "../css/index.module.css";
 import Dropdownmenu from "./Dropdownmenu";
 import ClearIcon from "@mui/icons-material/Clear";
-// import { makeStyles } from "@mui/styles";
-function Header({ anchorElNav, handleOpenNavMenu, handleCloseNavMenu }) {
+import { makeStyles, createStyles } from "@mui/styles";
+function Header() {
+  const useStyles = makeStyles(() =>
+    createStyles({
+      Menu: {
+        left: "0px",
+        right: "0px",
+      },
+    })
+  );
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null
+  );
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+  const classes = useStyles();
   const path: string = window.location.href.split("/")[3];
   const [height, width, standaloneornot] = useContext(Dimensionscontext);
   const [scrolled, setscrolled] = useState(false);
@@ -35,7 +53,7 @@ function Header({ anchorElNav, handleOpenNavMenu, handleCloseNavMenu }) {
         position="sticky"
         className={styles.Header}
         style={{
-          background: anchorElNav ? "rgba(1, 22, 61, 0.9)" : "white",
+          background: "white",
           boxShadow: scrolled ? "0px 2px 20px rgb(1 41 112 / 10%)" : "none",
         }}
       >
@@ -175,6 +193,7 @@ function Header({ anchorElNav, handleOpenNavMenu, handleCloseNavMenu }) {
                 sx={{
                   color: anchorElNav ? "white" : "#444444",
                   cursor: "pointer",
+                  zIndex: 10000000,
                 }}
               >
                 {anchorElNav ? <ClearIcon /> : <MenuIcon />}
@@ -182,21 +201,20 @@ function Header({ anchorElNav, handleOpenNavMenu, handleCloseNavMenu }) {
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "center",
-                }}
                 PaperProps={{
                   style: {
                     height: "100vh",
                     width: "100vw",
-                    margin:0,
-                    overflowY: "scroll",
+                    margin: 0,
+                    zIndex: -1,
                     display: "flex",
                     flexDirection: "column",
-                    left: "0px !important",
-                    maxWidth:'100vw',
-                    maxHeight:'100vh',
+                    maxWidth: "100vw",
+                    maxHeight: "100vh",
+                    background: "rgba(1,22,61,0.9)",
+                    marginLeft: "16px",
+                    marginTop: "16px",
+                    justifyContent: "center",
                   },
                 }}
                 keepMounted
@@ -206,53 +224,83 @@ function Header({ anchorElNav, handleOpenNavMenu, handleCloseNavMenu }) {
                   display: { xs: "block", md: "none" },
                 }}
               >
-                <a href="/" style={{ textDecoration: "none" }}>
-                  <MenuItem onClick={handleCloseNavMenu}>
-                    <span className={styles.links}>Home</span>
-                  </MenuItem>
-                </a>
-                <Dropdownmenu
-                  title="Programmes"
-                  dropwdownoptions={[
-                    ["Mentorship Programme", "/"],
-                    ["Buddy Programme", "/"],
-                  ]}
-                />
-                <br />
-                <Dropdownmenu
-                  title="People"
-                  dropwdownoptions={[
-                    ["Core Team ", "/"],
-                    ["Department Faculty Representatives", "/"],
-                    ["UG Mentors Team", "/"],
-                    ["PG Mentors Team", "/"],
-                    ["UG Buddies Team", "/"],
-                    ["PG Buddies Team", "/"],
-                    ["Previous Teams", "/"],
-                  ]}
-                />
-                <br />
-                <Dropdownmenu
-                  title="Events"
-                  dropwdownoptions={[
-                    ["Upcoming ", "/"],
-                    ["Concluded", "/"],
-                  ]}
-                />
-                <br />
-                <Dropdownmenu
-                  title="Articles"
-                  dropwdownoptions={[
-                    ["Newsletter", "/"],
-                    ["Useful Articles", "/"],
-                  ]}
-                />
-                <br />
-                <a href="/" style={{ textDecoration: "none" }}>
-                  <MenuItem onClick={handleCloseNavMenu}>
-                    <span className={styles.links}>FAQs</span>
-                  </MenuItem>
-                </a>
+                <IconButton
+                  disableRipple
+                  size="large"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleCloseNavMenu}
+                  color="inherit"
+                  sx={{
+                    color: anchorElNav ? "white" : "#444444",
+                    cursor: "pointer",
+                    zIndex: 10000000,
+                  }}
+                >
+                  {anchorElNav ? <ClearIcon /> : <MenuIcon />}
+                </IconButton>
+                <Container
+                  style={{
+                    width: "90vw",
+                    height: "50vh",
+                    overflowY: "scroll",
+                    margin: "auto",
+                    background: "white",
+                    borderTopLeftRadius: "10px",
+                    borderBottomLeftRadius: "10px",
+                    borderTopRightRadius: "10px",
+                    borderBottomRightRadius: "10px",
+                  }}
+                >
+                  <a href="/" style={{ textDecoration: "none" }}>
+                    <MenuItem onClick={handleCloseNavMenu}>
+                      <span className={styles.links}>Home</span>
+                    </MenuItem>
+                  </a>
+                  <Dropdownmenu
+                    title="Programmes"
+                    dropwdownoptions={[
+                      ["Mentorship Programme", "/"],
+                      ["Buddy Programme", "/"],
+                    ]}
+                  />
+                  <br />
+                  <Dropdownmenu
+                    title="People"
+                    dropwdownoptions={[
+                      ["Core Team ", "/"],
+                      ["Department Faculty Representatives", "/"],
+                      ["UG Mentors Team", "/"],
+                      ["PG Mentors Team", "/"],
+                      ["UG Buddies Team", "/"],
+                      ["PG Buddies Team", "/"],
+                      ["Previous Teams", "/"],
+                    ]}
+                  />
+                  <br />
+                  <Dropdownmenu
+                    title="Events"
+                    dropwdownoptions={[
+                      ["Upcoming ", "/"],
+                      ["Concluded", "/"],
+                    ]}
+                  />
+                  <br />
+                  <Dropdownmenu
+                    title="Articles"
+                    dropwdownoptions={[
+                      ["Newsletter", "/"],
+                      ["Useful Articles", "/"],
+                    ]}
+                  />
+                  <br />
+                  <a href="/" style={{ textDecoration: "none" }}>
+                    <MenuItem onClick={handleCloseNavMenu}>
+                      <span className={styles.links}>FAQs</span>
+                    </MenuItem>
+                  </a>
+                </Container>
               </Menu>
             </Box>
           )}

@@ -188,21 +188,18 @@ function Header({ anchorElNav, handleOpenNavMenu, handleCloseNavMenu }) {
                 }}
                 PaperProps={{
                   style: {
-                    marginTop: "14vh",
-                    height: "50vh",
-                    width: "94vw",
+                    height: "100vh",
+                    width: "100vw",
+                    margin:0,
                     overflowY: "scroll",
                     display: "flex",
                     flexDirection: "column",
-                    // justifyContent: window.innerWidth<600?"space-around":'',
                     left: "0px !important",
+                    maxWidth:'100vw',
+                    maxHeight:'100vh',
                   },
                 }}
                 keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "center",
-                }}
                 open={Boolean(anchorElNav)}
                 onClose={handleCloseNavMenu}
                 sx={{
@@ -252,9 +249,9 @@ function Header({ anchorElNav, handleOpenNavMenu, handleCloseNavMenu }) {
                 />
                 <br />
                 <a href="/" style={{ textDecoration: "none" }}>
-                <MenuItem onClick={handleCloseNavMenu}>
-                  <span className={styles.links}>FAQs</span>
-                </MenuItem>
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    <span className={styles.links}>FAQs</span>
+                  </MenuItem>
                 </a>
               </Menu>
             </Box>

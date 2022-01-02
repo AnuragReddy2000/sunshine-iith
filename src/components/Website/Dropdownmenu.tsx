@@ -78,19 +78,9 @@ function Dropdownmenu({ title, dropwdownoptions }) {
           />
         }
       >
-        {width > 900 ? (
-          <span
-            className={styles.Links}
-            onMouseOver={handleClick}
-            onClick={handleClick}
-          >
-            {title}
-          </span>
-        ) : (
-          <div className={styles.Links} onClick={handleClick}>
-            {title}
-          </div>
-        )}
+        <span className={styles.Links} onClick={handleClick}>
+          {title}
+        </span>
       </Button>
       <StyledMenu
         id="demo-customized-menu"

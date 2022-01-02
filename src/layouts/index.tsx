@@ -42,7 +42,7 @@ function index({ children }) {
   const standaloneornot = window.matchMedia("(display-mode: standalone)")
     .matches
     ? true
-    : false;
+    : true;
   const { height, width } = useWindowDimensions();
   const [user, setuser] = useState<User>(null);
   const provider = new GoogleAuthProvider();
@@ -167,18 +167,14 @@ function index({ children }) {
           {standaloneornot ? (
             <React.Fragment>{children}</React.Fragment>
           ) : (
-            <div
-              style={{
-                background: anchorElNav ? "rgba(1, 22, 61, 0.9)" : "none",
-              }}
-            >
+            <React.Fragment>
               <Header
                 anchorElNav={anchorElNav}
                 handleOpenNavMenu={handleOpenNavMenu}
                 handleCloseNavMenu={handleCloseNavMenu}
               />
               {children}
-            </div>
+            </React.Fragment>
           )}
         </Dimensionscontext.Provider>
       </ThemeProvider>

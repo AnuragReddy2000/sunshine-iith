@@ -42,7 +42,22 @@ function home() {
   }, [user]);
   return (
     <div className={styles.colorit}>
+      <Typography
+        gutterBottom
+        component="div"
+        style={{
+          marginLeft: "1vw",
+          marginRight: "1vw",
+          marginTop: "1vh",
+          marginBottom: 0,
+        }}
+      >
+        Hello
+      </Typography>
       <div className={styles.homeimage}>
+        <Typography gutterBottom component="div" style={{ margin: "auto 0px" }}>
+          {user ? user.displayName : ""}
+        </Typography>
         <Tooltip title="settings">
           <IconButton
             size="large"
@@ -85,21 +100,16 @@ function home() {
         </Menu>
       </div>
       <Container maxWidth="lg">
-        <Typography gutterBottom component="div">
-          Hello {user ? user.displayName : ""}
-        </Typography>
-        <Typography variant="h6" style={{ marginTop: "2vh" }}>
-          Explore
-        </Typography>
         <div className={styles.explore}>
           <Button
             href="/schedule"
             disableFocusRipple
             disableRipple
             disableElevation
+            className={styles.centerI}
           >
             <Paper elevation={4}>
-              <Card sx={{ maxWidth: 220 }}>
+              <Card sx={{ maxWidth: 220 }} className={styles.cardit}>
                 <CardActionArea>
                   <CardContent className={styles.Cardcat}>
                     <div>
@@ -118,9 +128,10 @@ function home() {
             disableFocusRipple
             disableRipple
             disableElevation
+            className={styles.centerI}
           >
             <Paper elevation={4}>
-              <Card sx={{ maxWidth: 220 }}>
+              <Card sx={{ maxWidth: 220 }} className={styles.cardit}>
                 <CardActionArea>
                   <CardContent className={styles.Cardcat}>
                     <div>
@@ -136,17 +147,41 @@ function home() {
           </Button>
         </div>
         <Typography
-          variant="h6"
-          style={{ marginTop: "2vh", marginBottom: "2vh" }}
+          variant="h4"
+          style={{ marginTop: "2vh", marginBottom: "2vh", textAlign: "center" }}
         >
-          Features
+          Explore
         </Typography>
         <div className={styles.slider}>
-          <CardComponent title="Programmes" image={Programmes} onclick={null} size={220} scrollto="Prog"/>
-          <CardComponent title="Team" image={Team} onclick={null} size={220} scrollto="Team"/>
-          <CardComponent title="Events" image={Events} onclick={null} size={220} scrollto="Events"/>
-          <CardComponent title="Articles" image={Articles} onclick={null} size={220} scrollto="Articles"/>
-          <CardComponent title="FAQs" image={FAQs} onclick="/" size={220}/>
+          <CardComponent
+            title="Programmes"
+            image={Programmes}
+            onclick={null}
+            size={220}
+            scrollto="Prog"
+          />
+          <CardComponent
+            title="Team"
+            image={Team}
+            onclick={null}
+            size={220}
+            scrollto="Team"
+          />
+          <CardComponent
+            title="Events"
+            image={Events}
+            onclick={null}
+            size={220}
+            scrollto="Events"
+          />
+          <CardComponent
+            title="Articles"
+            image={Articles}
+            onclick={null}
+            size={220}
+            scrollto="Articles"
+          />
+          <CardComponent title="FAQs" image={FAQs} onclick="/" size={220} />
         </div>
         <Typography
           variant="h6"
@@ -156,8 +191,18 @@ function home() {
           Programmes
         </Typography>
         <div className={`${styles.slider}`}>
-          <CardComponent title="Mentorship" image={Programmes} onclick="/" size={154}/>
-          <CardComponent title="Buddy Program" image={Programmes} onclick="/" size={154}/>
+          <CardComponent
+            title="Mentorship"
+            image={Programmes}
+            onclick="/"
+            size={154}
+          />
+          <CardComponent
+            title="Buddy Program"
+            image={Programmes}
+            onclick="/"
+            size={154}
+          />
         </div>
         <Typography
           variant="h6"
@@ -167,13 +212,48 @@ function home() {
           Team
         </Typography>
         <div className={`${styles.slider}`}>
-          <CardComponent title="Core Team" image={Programmes} onclick="/" size={220}/>
-          <CardComponent title="Faculty Representatives" image={Programmes} onclick="/" size={220}/>
-          <CardComponent title="UG Mentors" image={Programmes} onclick="/" size={220}/>
-          <CardComponent title="PG Mentors" image={Programmes} onclick="/" size={220}/>
-          <CardComponent title="UG Buddies" image={Programmes} onclick="/" size={220}/>
-          <CardComponent title="PG Buddies" image={Programmes} onclick="/" size={220}/>
-          <CardComponent title="Previous Teams" image={Programmes} onclick="/" size={220}/>
+          <CardComponent
+            title="Core Team"
+            image={Programmes}
+            onclick="/"
+            size={220}
+          />
+          <CardComponent
+            title="Faculty Representatives"
+            image={Programmes}
+            onclick="/"
+            size={220}
+          />
+          <CardComponent
+            title="UG Mentors"
+            image={Programmes}
+            onclick="/"
+            size={220}
+          />
+          <CardComponent
+            title="PG Mentors"
+            image={Programmes}
+            onclick="/"
+            size={220}
+          />
+          <CardComponent
+            title="UG Buddies"
+            image={Programmes}
+            onclick="/"
+            size={220}
+          />
+          <CardComponent
+            title="PG Buddies"
+            image={Programmes}
+            onclick="/"
+            size={220}
+          />
+          <CardComponent
+            title="Previous Teams"
+            image={Programmes}
+            onclick="/"
+            size={220}
+          />
         </div>
         <Typography
           variant="h6"
@@ -183,8 +263,18 @@ function home() {
           Events
         </Typography>
         <div className={`${styles.slider}`}>
-          <CardComponent title="Upcoming" image={Programmes} onclick="/" size={154}/>
-          <CardComponent title="Concluded" image={Programmes} onclick="/" size={154}/>
+          <CardComponent
+            title="Upcoming"
+            image={Programmes}
+            onclick="/"
+            size={154}
+          />
+          <CardComponent
+            title="Concluded"
+            image={Programmes}
+            onclick="/"
+            size={154}
+          />
         </div>
         <Typography
           variant="h6"
@@ -194,8 +284,33 @@ function home() {
           Articles
         </Typography>
         <div className={`${styles.slider}`}>
-          <CardComponent title="NewsLetter" image={Programmes} onclick="/" size={154}/>
-          <CardComponent title="Other Aticles" image={Programmes} onclick="/" size={154}/>
+          <CardComponent
+            title="NewsLetter"
+            image={Programmes}
+            onclick="/"
+            size={154}
+          />
+          <CardComponent
+            title="Other Aticles"
+            image={Programmes}
+            onclick="/"
+            size={154}
+          />
+        </div>
+        <Typography
+          variant="h6"
+          style={{ marginTop: "2vh", marginBottom: "2vh" }}
+          className="Articles"
+        >
+          FAQs
+        </Typography>
+        <div className={`${styles.slider}`}>
+          <CardComponent
+            title="NewsLetter"
+            image={Programmes}
+            onclick="/"
+            size={180}
+          />
         </div>
       </Container>
     </div>

@@ -1,0 +1,78 @@
+@media (max-width: 700px){
+    .content2 {
+        flex-direction: column;
+    }
+}
+@media (min-width: 1064px){
+    .content1, .content2 {
+        flex-direction: row;
+        text-align: left;
+    }
+}
+
+
+.image1{
+    margin-top: 30px;
+    height: 40vh;
+    width: 40vh;
+    object-fit: cover;
+}
+.line, .line1{
+    background-color: #f2ba49;
+    height: 5px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+@media (min-width: 1064px){
+    .line {
+        margin-left: 0;
+    }
+}
+.details2{
+    text-align: left;
+    max-width: 40vh;
+}
+.heading{
+    text-align: center;
+    margin-bottom: 0;
+}
+.desgn{
+    color: #f2ba49;
+}
+.icons{
+    font-size: 5vh;
+    /* color: black; */
+}
+.logo{
+    height: 100px;
+    width: 100px;
+    margin-left: 0;
+}
+.accordion{
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+/* @media (max-width: 800px){
+    .accordion{
+        width: 100%;
+    }
+} */
+@media (max-width: 800px){
+    .logo{
+        margin-left: 0;
+    }
+}
+/* @media (min-width: 800px){
+    .image1{
+        height: 100vh;
+        width: 100h;
+    }
+} */
+/* @media (min-width: 800px){
+    .line{
+        text-align: left;
+    }
+} */

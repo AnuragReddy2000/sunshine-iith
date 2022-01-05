@@ -243,7 +243,7 @@ function Header() {
                 <Container
                   style={{
                     width: "90vw",
-                    height: "50vh",
+                    height: "40vh",
                     overflowY: "scroll",
                     margin: "auto",
                     background: "white",
@@ -251,6 +251,7 @@ function Header() {
                     borderBottomLeftRadius: "10px",
                     borderTopRightRadius: "10px",
                     borderBottomRightRadius: "10px",
+                    justifyContent:'center'
                   }}
                 >
                   <a href="/" style={{ textDecoration: "none" }}>

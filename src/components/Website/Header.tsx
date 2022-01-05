@@ -164,7 +164,10 @@ function Header() {
             >
               <a
                 href="/"
-                style={{ textDecoration: "none" }}
+                style={{
+                  textDecoration: "none",
+                  color: path == "" ? "#1AC9BC" : "grey",
+                }}
                 className={styles.Links}
               >
                 Home
@@ -211,7 +214,7 @@ function Header() {
                     flexDirection: "column",
                     maxWidth: "100vw",
                     maxHeight: "100vh",
-                    background: "rgba(1,22,61,0.9)",
+                    background: "rgba(14,13,14,0.98)",
                     marginLeft: "16px",
                     marginTop: "16px",
                     justifyContent: "center",
@@ -251,7 +254,7 @@ function Header() {
                     borderBottomLeftRadius: "10px",
                     borderTopRightRadius: "10px",
                     borderBottomRightRadius: "10px",
-                    justifyContent:'center'
+                    justifyContent: "center",
                   }}
                 >
                   <a href="/" style={{ textDecoration: "none" }}>

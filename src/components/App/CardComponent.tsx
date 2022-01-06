@@ -9,9 +9,10 @@ function CardComponent({ title, image, onclick, size, scrollto }) {
         sx={{
           maxWidth: size,
           minWidth: size,
-          minHeight: size < 160 ? size + 30 : size,
+          minHeight: size < 160 ? size-54 : size,
           margin: "5px",
-          backgroundImage: `url(${image})`,
+          color:'white',
+          backgroundColor: image,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           cursor: "pointer",

@@ -42,63 +42,77 @@ function home() {
   }, [user]);
   return (
     <div className={styles.colorit}>
-      <Typography
-        gutterBottom
-        component="div"
-        style={{
-          marginLeft: "1vw",
-          marginRight: "1vw",
-          marginTop: "1vh",
-          marginBottom: 0,
-        }}
-      >
-        Hello
-      </Typography>
-      <div className={styles.homeimage}>
-        <Typography gutterBottom component="div" style={{ margin: "auto 0px" }}>
-          {user ? user.displayName : ""}
-        </Typography>
-        <Tooltip title="settings">
-          <IconButton
-            size="large"
-            aria-label="account of current user"
-            aria-controls="menu-appbar"
-            aria-haspopup="true"
-            onClick={handleMenu}
-            color="inherit"
-          >
-            <img
-              src={user ? user.photoURL : Logo}
-              alt="Image"
-              className={styles.rounditimage}
-              width={45}
-              height={45}
-            />
-          </IconButton>
-        </Tooltip>
-        <Menu
-          id="basic-menu"
-          anchorEl={anchorEl}
-          MenuListProps={{
-            "aria-labelledby": "basic-button",
+      <Container maxWidth="lg" sx={{ paddingRight: "0" }}>
+        <div
+          style={{
+            backgroundColor: "#f8bd5b",
+            color: "black",
+            paddingLeft: "20px",
+            borderTopLeftRadius: "15px",
           }}
-          open={Boolean(anchorEl)}
-          onClose={handleClose}
         >
-          {/* <MenuItem onClick={signout}>
+          <Typography
+            gutterBottom
+            component="h3"
+            style={{
+              marginTop: "1vh",
+              fontSize: "1.8rem",
+              paddingTop: "10px",
+            }}
+          >
+            Hello
+          </Typography>
+          <div className={styles.homeimage}>
+            <Typography
+              gutterBottom
+              component="div"
+              style={{ margin: "auto 0px" }}
+            >
+              {user ? user.displayName : ""}
+            </Typography>
+            <Tooltip title="settings">
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+              >
+                <img
+                  src={user ? user.photoURL : Logo}
+                  alt="Image"
+                  className={styles.rounditimage}
+                  width={45}
+                  height={45}
+                />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorEl}
+              MenuListProps={{
+                "aria-labelledby": "basic-button",
+              }}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              {/* <MenuItem onClick={signout}>
             <ListItemIcon>
               <SupervisorAccountIcon fontSize="small" />
             </ListItemIcon>
             <ListItemText>My Account</ListItemText>
           </MenuItem> */}
-          <MenuItem onClick={signout}>
-            <ListItemIcon>
-              <ExitToAppRoundedIcon fontSize="small" />
-            </ListItemIcon>
-            <ListItemText>Logout</ListItemText>
-          </MenuItem>
-        </Menu>
-      </div>
+              <MenuItem onClick={signout}>
+                <ListItemIcon>
+                  <ExitToAppRoundedIcon fontSize="small" />
+                </ListItemIcon>
+                <ListItemText>Logout</ListItemText>
+              </MenuItem>
+            </Menu>
+          </div>
+        </div>
+      </Container>
       <Container maxWidth="lg">
         <div className={styles.explore}>
           <Button
@@ -116,7 +130,7 @@ function home() {
                       <img src={Schedule} alt="Image" width={24} height={24} />
                     </div>
                     <Typography gutterBottom component="div" sx={{ px: 1 }}>
-                      Book Slot
+                      Book a Slot
                     </Typography>
                   </CardContent>
                 </CardActionArea>
@@ -138,7 +152,7 @@ function home() {
                       <img src={ChatBot} alt="Image" width={24} height={24} />
                     </div>
                     <Typography gutterBottom component="div" sx={{ px: 1 }}>
-                      ChatBot
+                      Chat with our Bot
                     </Typography>
                   </CardContent>
                 </CardActionArea>
@@ -146,42 +160,44 @@ function home() {
             </Paper>
           </Button>
         </div>
+        <br />
         <Typography
-          variant="h4"
-          style={{ marginTop: "2vh", marginBottom: "2vh", textAlign: "center" }}
+          variant="h5"
+          style={{ marginTop: "2vh", textAlign: "center" }}
         >
           Explore
         </Typography>
+        <br/>
         <div className={styles.slider}>
           <CardComponent
             title="Programmes"
-            image={Programmes}
+            image="#9081f9"
             onclick={null}
             size={220}
             scrollto="Prog"
           />
           <CardComponent
             title="Team"
-            image={Team}
+            image="#f7498a"
             onclick={null}
             size={220}
             scrollto="Team"
           />
           <CardComponent
             title="Events"
-            image={Events}
+            image="#23f5a6"
             onclick={null}
             size={220}
             scrollto="Events"
           />
           <CardComponent
             title="Articles"
-            image={Articles}
+            image="#2372f5"
             onclick={null}
             size={220}
             scrollto="Articles"
           />
-          <CardComponent title="FAQs" image={FAQs} onclick="/" size={220} />
+          <CardComponent title="FAQs" image="#eaf981" onclick="/" size={220} />
         </div>
         <Typography
           variant="h6"
@@ -193,13 +209,13 @@ function home() {
         <div className={`${styles.slider}`}>
           <CardComponent
             title="Mentorship"
-            image={Programmes}
+            image="#9081f9"
             onclick="/"
             size={154}
           />
           <CardComponent
             title="Buddy Program"
-            image={Programmes}
+            image="#9081f9"
             onclick="/"
             size={154}
           />
@@ -214,45 +230,45 @@ function home() {
         <div className={`${styles.slider}`}>
           <CardComponent
             title="Core Team"
-            image={Programmes}
+            image="#f7498a"
             onclick="/"
-            size={220}
+            size={195}
           />
           <CardComponent
             title="Faculty Representatives"
-            image={Programmes}
+            image="#f7498a"
             onclick="/"
-            size={220}
+            size={195}
           />
           <CardComponent
             title="UG Mentors"
-            image={Programmes}
+            image="#f7498a"
             onclick="/"
-            size={220}
+            size={195}
           />
           <CardComponent
             title="PG Mentors"
-            image={Programmes}
+            image="#f7498a"
             onclick="/"
-            size={220}
+            size={195}
           />
           <CardComponent
             title="UG Buddies"
-            image={Programmes}
+            image="#f7498a"
             onclick="/"
-            size={220}
+            size={195}
           />
           <CardComponent
             title="PG Buddies"
-            image={Programmes}
+            image="#f7498a"
             onclick="/"
-            size={220}
+            size={195}
           />
           <CardComponent
             title="Previous Teams"
-            image={Programmes}
+            image="#f7498a"
             onclick="/"
-            size={220}
+            size={195}
           />
         </div>
         <Typography
@@ -265,13 +281,13 @@ function home() {
         <div className={`${styles.slider}`}>
           <CardComponent
             title="Upcoming"
-            image={Programmes}
+            image="#23f5a6"
             onclick="/"
             size={154}
           />
           <CardComponent
             title="Concluded"
-            image={Programmes}
+            image="#23f5a6"
             onclick="/"
             size={154}
           />
@@ -286,30 +302,15 @@ function home() {
         <div className={`${styles.slider}`}>
           <CardComponent
             title="NewsLetter"
-            image={Programmes}
+            image="#2372f5"
             onclick="/"
             size={154}
           />
           <CardComponent
             title="Other Aticles"
-            image={Programmes}
+            image="#2372f5"
             onclick="/"
             size={154}
-          />
-        </div>
-        <Typography
-          variant="h6"
-          style={{ marginTop: "2vh", marginBottom: "2vh" }}
-          className="Articles"
-        >
-          FAQs
-        </Typography>
-        <div className={`${styles.slider}`}>
-          <CardComponent
-            title="NewsLetter"
-            image={Programmes}
-            onclick="/"
-            size={180}
           />
         </div>
       </Container>

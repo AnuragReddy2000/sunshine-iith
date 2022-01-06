@@ -166,7 +166,6 @@ function Header() {
                 href="/"
                 style={{
                   textDecoration: "none",
-                  color: path == "" ? "#1AC9BC" : "grey",
                 }}
                 className={styles.Links}
               >
@@ -214,10 +213,10 @@ function Header() {
                     flexDirection: "column",
                     maxWidth: "100vw",
                     maxHeight: "100vh",
-                    background: "rgba(14,13,14,0.98)",
+                    background: "rgb(42 38 37 / 82%)",
                     marginLeft: "16px",
                     marginTop: "16px",
-                    justifyContent: "center",
+                    // justifyContent: "center",
                   },
                 }}
                 keepMounted
@@ -227,28 +226,30 @@ function Header() {
                   display: { xs: "block", md: "none" },
                 }}
               >
-                <IconButton
-                  disableRipple
-                  size="large"
-                  aria-label="account of current user"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  onClick={handleCloseNavMenu}
-                  color="inherit"
-                  sx={{
-                    color: anchorElNav ? "white" : "#444444",
-                    cursor: "pointer",
-                    zIndex: 10000000,
-                  }}
-                >
-                  {anchorElNav ? <ClearIcon /> : <MenuIcon />}
-                </IconButton>
+                <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                  <IconButton
+                    disableRipple
+                    size="large"
+                    aria-label="account of current user"
+                    aria-controls="menu-appbar"
+                    aria-haspopup="true"
+                    onClick={handleCloseNavMenu}
+                    color="inherit"
+                    sx={{
+                      color: anchorElNav ? "white" : "#444444",
+                      cursor: "pointer",
+                      zIndex: 10000000,
+                    }}
+                  >
+                    {anchorElNav ? <ClearIcon /> : <MenuIcon />}
+                  </IconButton>
+                </div>
                 <Container
                   style={{
                     width: "90vw",
-                    height: "40vh",
+                    // height: "40vh",
+                    padding:"3vh",
                     overflowY: "scroll",
-                    margin: "auto",
                     background: "white",
                     borderTopLeftRadius: "10px",
                     borderBottomLeftRadius: "10px",

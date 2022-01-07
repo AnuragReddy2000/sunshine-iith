@@ -1,4 +1,10 @@
-const UG_Mentors = [
+const UG_Mentors: {
+  id: number;
+  Name: string;
+  Roll_No: string;
+  Email: string;
+  Phone: number;
+}[] = [
   {
     id: 1,
     Name: "L Pranay",
@@ -586,3 +592,5 @@ const UG_Buddies = [
     Email: "ms20btech11028@iith.ac.in",
   },
 ];
+
+export default { UG_Mentors, UG_Buddies };

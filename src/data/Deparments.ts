@@ -1,4 +1,4 @@
-export const Departments = [
+export const Departments: string[][] = [
   ["Artificial Intelligence", "AI"],
   ["Design", "BD"],
   ["Biomedical", "BM"],

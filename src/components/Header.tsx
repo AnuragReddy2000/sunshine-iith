@@ -2,6 +2,8 @@ import { Link } from "gatsby";
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
 export default function Header() {
   return (
     <header>

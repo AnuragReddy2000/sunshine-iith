@@ -3,5 +3,5 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function TeamMember(props) {
-  return <div></div>;
+  return <div>{props.member.Name}</div>;
 }

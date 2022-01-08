@@ -15,7 +15,7 @@ function Teams() {
       <DropdownButton
         className="m-2"
         id="dropdown-basic-button"
-        title="Department"
+        title={currentDepartment}
       >
         <Dropdown.Item key="all" onClick={() => setCurrentDepartment("All")}>
           All

@@ -1,4 +1,4 @@
-const UG_Mentors: {
+export const UG_Mentors: {
   id: number;
   Name: string;
   Roll_No: string;
@@ -380,7 +380,7 @@ const UG_Mentors: {
 
 // <=========================================================================>
 
-const UG_Buddies = [
+export const UG_Buddies = [
   {
     id: 1,
     Name: "Tanmay Goyal",
@@ -593,4 +593,4 @@ const UG_Buddies = [
   },
 ];
 
-export default { UG_Mentors, UG_Buddies };
+// export default { UG_Mentors, UG_Buddies };

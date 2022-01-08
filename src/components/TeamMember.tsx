@@ -15,26 +15,26 @@ export default function TeamMember(props) {
           className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
         />
         <h5 className="mb-0">{props.member.Name}</h5>
-        <span className="small text-uppercase text-muted">{props.role}</span>
+        <span className="small text-uppercase text-muted">
+          {props.member.department}
+        </span>
         <ul className="social mb-0 list-inline mt-3">
           <li className="list-inline-item">
-            <a href="#" className="social-link">
-              <i className="fa fa-facebook-f"></i>
+            <a href={"mailto:" + props.member.Email} className="social-link">
+              <i className="fa fa-google"></i>
             </a>
           </li>
           <li className="list-inline-item">
-            <a href="#" className="social-link">
-              <i className="fa fa-twitter"></i>
+            <a
+              href={"https://api.whatsapp.com/send?phone=" + props.member.Phone}
+              className="social-link"
+            >
+              <i className="fa fa-whatsapp"></i>
             </a>
           </li>
           <li className="list-inline-item">
-            <a href="#" className="social-link">
-              <i className="fa fa-instagram"></i>
-            </a>
-          </li>
-          <li className="list-inline-item">
-            <a href="#" className="social-link">
-              <i className="fa fa-linkedin"></i>
+            <a href={"tel:" + props.member.Phone} className="social-link">
+              <i className="fa fa-phone"></i>
             </a>
           </li>
         </ul>

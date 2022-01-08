@@ -13,9 +13,9 @@ function Teams() {
     <Layout>
       <div>This is the teams page</div>
       <DropdownButton
-        className="m-2"
+        className="m-2 text-center"
         id="dropdown-basic-button"
-        title={currentDepartment}
+        title={"Department: " + currentDepartment}
       >
         <Dropdown.Item key="all" onClick={() => setCurrentDepartment("All")}>
           All
